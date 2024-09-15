@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a New File</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        label {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #666;
+            background-color: #333;
+            color: #fff;
+            width: 80%;
+            max-width: 400px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            background-color: #00ff7f;
+            color: #000;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #00cc66;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            color: #ff9999;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create a New File</h1>
+    <form action="/create" method="POST">
+        <label for="filename">Enter a filename (or leave blank to use today's date):</label>
+        <input type="text" id="filename" name="filename" placeholder="Optional custom filename">
+        <button type="submit">Create File</button>
+    </form>
+
+    <% if (errorMessage) { %>
+        <div class="message">
+            <p><%= errorMessage %></p>
+        </div>
+    <% } %>
+</body>
+</html>
